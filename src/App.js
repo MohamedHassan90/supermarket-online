@@ -1,31 +1,24 @@
+import React from "react";
+import {Switch, Route} from "react-router-dom";
+import Navbar from './Components/Navbar';
+import Home from "./Components/Home";
+import About from "./Components/About";
+import Products from "./Components/Products";
+import Cart from "./Components/Cart";
 import './App.css';
-import Button from "./UIKit/Button";
-import Input from "./UIKit/Input";
 
 function App() {
-
-  function handleBtnClick() {
-    console.log("Customizable Button clicked!");
-  }
-
-  function handleLastNameInput() {
-    console.log("last name changed");
-  }
-
-  return (
-    <div className="App">
-      <div className="container">
-        <Button>Normal</Button>
-        <Button outline>Outline</Button>
-        <Button className="extra-class" onClick={handleBtnClick}>Customizable</Button>
-      </div>
-      <div className="container">
-        <Input placeholder="First name" />
-        <Input placeholder="Last name" onInput={handleLastNameInput} />
-        <Input placeholder="Email" type="email" required />
-      </div>
+  return (<>
+    <Navbar />
+    <div className="container">
+      <Switch>
+        <Route exact path="/"><Home /></Route>
+        <Route exact path="/about"><About /></Route>
+        <Route exact path="/products"><Products /></Route>
+        <Route exact path="/cart"><Cart /></Route>
+      </Switch>
     </div>
-  );
+  </>);
 }
 
 export default App;

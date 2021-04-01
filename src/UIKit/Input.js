@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import "./input.css";
+import "./css/Input.css";
 
 export default function Input(props) {
   const {type="text", className, placeholder, required, ...rest } = props;

@@ -13,6 +13,7 @@
 .btn-default {
   color: var(--white);
   background-color: var(--primary-1);
+  text-decoration: none;
 }
 
 .btn-default:hover,
@@ -38,6 +39,7 @@
 .btn-accent {
   color: var(--white);
   background-color: var(--accent-1);
+  text-decoration: none;
 }
 
 .btn-accent:hover {
