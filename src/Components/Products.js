@@ -25,7 +25,13 @@ export default function Products(props) {
       { isLoading && <Loader /> }
       {
         products.map(product => {
-          return <Product key={product.id} details={product} />
+          return <Product 
+            key={product.id} 
+            details={product}
+            cart={props.cart}
+            onProductAdd={props.onProductAdd.bind(null, product)}
+            onProductDelete={props.onProductDelete.bind(null, product.id)} 
+          />
         })
       }
     </div>

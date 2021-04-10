@@ -4,6 +4,15 @@ import "../UIKit/css/Nav.css";
 import "../UIKit/css/Button.css";
 
 export default function Navbar(props) {
+  const { cart } = props;
+
+  function getTotalQuantity() {
+    const sum = cart.reduce((accumulator, product) => {
+      return accumulator + product.quantity
+    }, 0);
+    return sum;
+  }
+
   return (
     <nav className="navbar">
       <NavLink to="/" activeClassName="active" className="nav-brand">Super Market</NavLink>
@@ -18,7 +27,7 @@ export default function Navbar(props) {
           <NavLink to="/products" activeClassName="active">Products</NavLink>
         </li>
         <li>
-          <NavLink to="/cart" className="nav-item nav-cart btn btn-accent">Cart (0)</NavLink>
+          <NavLink to="/cart" className="nav-item nav-cart btn btn-accent">Cart ({getTotalQuantity()})</NavLink>
         </li>
       </ul>
     </nav>

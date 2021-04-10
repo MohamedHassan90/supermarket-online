@@ -54,9 +54,6 @@ a {
   font-weight: bold;
   text-decoration: none;
 }
-a:hover {
-  text-decoration: underline;
-}
 
 .rounded {
   border-radius: 30px;

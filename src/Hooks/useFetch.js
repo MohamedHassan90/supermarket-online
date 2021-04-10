@@ -1,7 +1,7 @@
 import {useState} from 'react';
 
 export default function useFetch(baseurl) {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const get = function (url) {
     setIsLoading(true);
