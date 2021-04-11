@@ -13,6 +13,10 @@ function App() {
   const [ cart, setCart ] = useState(() => { 
     return JSON.parse(localStorage.getItem("cart")) || [];
   });
+  
+  const [appName, setAppName] = useState(() => {
+    return localStorage.getItem("appName") || "Super Market"
+  });
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -37,11 +41,11 @@ function App() {
   }
 
   return (<>
-    <Navbar cart={cart} />
+    <Navbar cart={cart} appName={appName} setAppName={setAppName} />
     <div className="container">
       <Switch>
         <Route exact path="/">
-            <Home />
+            <Home appName={appName} />
         </Route>
         <Route exact path="/about">
           <About />

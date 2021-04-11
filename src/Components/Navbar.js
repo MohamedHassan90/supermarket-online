@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import AppTitle from "./AppTitle";
 import "../UIKit/css/Nav.css";
 import "../UIKit/css/Button.css";
 
@@ -15,7 +16,7 @@ export default function Navbar(props) {
 
   return (
     <nav className="navbar">
-      <NavLink to="/" activeClassName="active" className="nav-brand">Super Market</NavLink>
+      <AppTitle setAppName={props.setAppName} appName={props.appName} />
       <ul>
         <li className="nav-item">
           <NavLink exact to="/" activeClassName="active">Home</NavLink>

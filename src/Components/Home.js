@@ -4,11 +4,12 @@ import "../UIKit/css/Pages.css";
 import "../UIKit/css/Button.css";
 
 export default function Home(props) {
+  console.log(props)
   return <div className="home-layout">
     <div>
       <h1>Online shopping simplified</h1>
       <p>
-        Order your groceries from <em>SuperM</em> with our easy to use app,
+        Order your groceries from <em>{props.appName}</em> with our easy to use app,
         and get your products delivered straight to your doorstep.
       </p>
       <Link to="/products" className="btn btn-default">Start shopping</Link>
