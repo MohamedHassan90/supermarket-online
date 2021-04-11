@@ -1,10 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AppContext } from "../Context/AppContext";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../UIKit/css/Input.css';
 
 export default function AppTitle(props) {
-  const [name, setName] = useState(props.appName);
+  const { name, setName } = useContext(AppContext);
   const [isEditing, setIsEditing] = useState(false);
   const inputRef = useRef();
 
@@ -21,14 +22,14 @@ export default function AppTitle(props) {
         value={name} 
         onBlur={e => {
           setIsEditing(false)
-          props.setAppName(name);
+          setName(name);
           localStorage.setItem("appName", name);
         }} 
         onChange={e => setName(e.target.value)}
         onKeyDown= {e => {
           if (e.code === "Enter") {
             setIsEditing(false);
-            props.setAppName(name);
+            setName(name);
             localStorage.setItem("appName", name);
           }
         }}

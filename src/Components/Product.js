@@ -1,29 +1,15 @@
-import React, {useState} from 'react';
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
 import Button from "../UIKit/Button";
+import { AppContext } from "../Context/AppContext";
+
 import '../UIKit/css/Products.css';
 
 export default function Product(props) {
-  const { details, cart } = props;
-  const [quantity, setQuantity] = useState(getProductQuantity());
-  
-  function getProductQuantity() {
-    const productIdx = props.cart.findIndex(product => product.id === details.id);
-    if (productIdx === -1) {
-      return 0; 
-    }
-    return cart[productIdx].quantity;
-  }
-
-  function handleProductAdd() {
-    props.onProductAdd();
-    setQuantity(quantity => quantity + 1);
-  }
-
-  function handleProductDelete() {
-    props.onProductDelete();
-    setQuantity(0);
-  }
+  const { handleProductAdd, handleProductDelete, getProductFromCart } = useContext(AppContext);
+  const { details } = props;
+  const product = getProductFromCart(details);
+  const quantity = (product && product.quantity) || 0;
 
   return (
     <div className="product">
@@ -42,10 +28,10 @@ export default function Product(props) {
       <div className="product-checkout">
         <div>
           { quantity === 0 ? null: 
-            <Button outline className="product-delete" onClick={handleProductDelete}>x</Button>
+            <Button outline className="product-delete" onClick={handleProductDelete.bind(null, details.id)}>x</Button>
           }
         </div>
-        <Button outline onClick={handleProductAdd}>${details.price}</Button>
+        <Button outline onClick={handleProductAdd.bind(null, details)}>${details.price}</Button>
       </div>
     </div>
 

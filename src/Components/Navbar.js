@@ -1,22 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AppContext } from "../Context/AppContext";
 import AppTitle from "./AppTitle";
 import "../UIKit/css/Nav.css";
 import "../UIKit/css/Button.css";
 
 export default function Navbar(props) {
-  const { cart } = props;
-
-  function getTotalQuantity() {
-    const sum = cart.reduce((accumulator, product) => {
-      return accumulator + product.quantity
-    }, 0);
-    return sum;
-  }
+  const { getTotalQuantity } = useContext(AppContext);
 
   return (
     <nav className="navbar">
-      <AppTitle setAppName={props.setAppName} appName={props.appName} />
+      <AppTitle />
       <ul>
         <li className="nav-item">
           <NavLink exact to="/" activeClassName="active">Home</NavLink>

@@ -45,7 +45,7 @@ export default function ProductDetails(props) {
       </div>
       <Switch>
         <Route exact path={`${match.path}`}>
-          <ProductDetailsInfo details={product} onProductAdd={props.onProductAdd.bind(null, product)} />
+          <ProductDetailsInfo details={product} />
         </Route>
         <Route exact path={`${match.path}/nutrition`}>
           <ProductDetailsNutrition nutrition={product.nutrition} />
