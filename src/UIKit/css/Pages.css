@@ -34,3 +34,20 @@
   padding-top: 40px;
   padding-bottom: 40px;
 }
+
+.cart-highlight {
+  background-color: var(--accent-1);
+  color: white;
+}
+
+@media(max-width: 768px) {
+  .home-layout,
+  .about-layout,
+  .products-grid,
+  .product-details-layout {
+    grid-template-columns: 1fr;
+  }
+  .home-image {
+    order: -1;
+  }
+}

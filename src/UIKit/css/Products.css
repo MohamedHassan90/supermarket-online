@@ -6,7 +6,7 @@
 }
 
 .product {
-  background-color: white;
+  background-color: var(--surface-color);
   padding: 15px 20px;
   border-radius: 25px;
   display: grid;
@@ -24,7 +24,7 @@
 }
 
 .product-delete {
-  background-color: white;
+  background-color: var(--surface-color);
   padding: 5px 10px;
   color: var(--accent-1);
   border-color: var(--accent-2);
@@ -39,7 +39,7 @@
   position: absolute;
   top: 8px;
   right: -15px;
-  background-color: white;
+  background-color: var(--surface-color);
   border-radius: 50%;
   padding: 5px;
 }
@@ -75,7 +75,7 @@
 
 /* product details page */
 .product-details-image {
-  background-color: white;
+  background-color: var(--surface-color);
   padding: 10px;
   border-radius: 20px;
 }
@@ -121,7 +121,7 @@
 }
 
 .table tbody tr:nth-child(2n) {
-  background-color: white;
+  background-color: var(--surface-color);
 }
 
 .table tbody tr:nth-child(2n + 1) {
@@ -149,10 +149,22 @@
 .tabs a {
   text-decoration: none;
   padding-bottom: 10px;
-  color: var(--black);
+  /* color: var(--black); */
   padding-left: 15px;
   padding-right: 15px;
 }
 .tabs .tab-active {
   border-bottom: 7px solid var(--primary-1);
+}
+
+@media(max-width: 768px) {
+  .home-layout,
+  .about-layout,
+  .products-grid,
+  .product-details-layout {
+    grid-template-columns: 1fr;
+  }
+  .home-image {
+    order: -1;
+  }
 }

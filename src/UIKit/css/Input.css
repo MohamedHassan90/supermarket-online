@@ -21,7 +21,7 @@
   border: none;
   border-left: 7px solid var(--neutral-4);
   transition: border-left-color 160ms;
-  background-color: white;
+  background-color: var(--surface-color);
 }
 
 ::placeholder {
