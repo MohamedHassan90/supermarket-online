@@ -1,5 +1,5 @@
 ## Live Demo
-https://custom-supermarket.netlify.app/
+Demo link: https://custom-supermarket.netlify.app/
 
 ## Available Scripts
 
