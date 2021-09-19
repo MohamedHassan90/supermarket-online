@@ -7,7 +7,7 @@ import '../UIKit/css/Products.css';
 
 export default function Products(props) {
   const [products, setProducts] = useState([]);
-  const { get, isLoading } = useFetch("https://react-tutorial-demo.firebaseio.com/");
+  const { get, isLoading } = useFetch("https://supermarket-online-20121-default-rtdb.europe-west1.firebasedatabase.app/");
 
   useEffect(() => {
     get("supermarket.json")

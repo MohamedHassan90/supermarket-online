@@ -9,7 +9,7 @@ import Loader from "../UIKit/Loader";
 export default function ProductDetails(props) {
   const [ product, setProduct ] = useState();
   const match = useRouteMatch();
-  const { get, isLoading } = useFetch("https://react-tutorial-demo.firebaseio.com/")
+  const { get, isLoading } = useFetch("https://supermarket-online-20121-default-rtdb.europe-west1.firebasedatabase.app/")
   
   useEffect(() => {
     get(`productinfo/id${match.params.id}.json`)
